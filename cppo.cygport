@@ -1,0 +1,26 @@
+inherit ocaml
+
+NAME="cppo"
+VERSION=0.9.2
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="OCaml preprocessor"
+DESCRIPTION="Cppo is an equivalent of the C preprocessor targeted at the OCaml
+language and its variants. The main purpose of cppo is to provide a lightweight
+tool for simple macro substitution (#define) and file inclusion (#include) for
+the occasional case when this is useful in OCaml. Processing specific sections
+of files by calling external programs is also possible via #ext directives."
+HOMEPAGE="http://martin.jambon.free.fr/yojson.html"
+SRC_URI="http://martin.jambon.free.fr/${NAME}-${VERSION}.tar.bz2"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin
+	cygmake install PREFIX=${D}/usr
+}

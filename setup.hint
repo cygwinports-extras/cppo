@@ -1,9 +1,0 @@
-category: Devel OCaml
-requires:
-sdesc: "OCaml preprocessor"
-ldesc: "Cppo is an equivalent of the C preprocessor targeted at the 
-OCaml language and its variants. The main purpose of cppo is to provide 
-a lightweight tool for simple macro substitution (#define) and file 
-inclusion (#include) for the occasional case when this is useful in 
-OCaml. Processing specific sections of files by calling external 
-programs is also possible via #ext directives."

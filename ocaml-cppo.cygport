@@ -1,7 +1,7 @@
 inherit ocaml
 
-NAME="cppo"
-VERSION=0.9.3
+NAME="ocaml-cppo"
+VERSION=1.5.0
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="OCaml preprocessor"
@@ -10,8 +10,11 @@ language and its variants. The main purpose of cppo is to provide a lightweight
 tool for simple macro substitution (#define) and file inclusion (#include) for
 the occasional case when this is useful in OCaml. Processing specific sections
 of files by calling external programs is also possible via #ext directives."
-HOMEPAGE="http://mjambon.com/cppo.html"
-SRC_URI="http://mjambon.com/releases/cppo/${NAME}-${VERSION}.tar.gz"
+HOMEPAGE="https://github.com/mjambon/cppo"
+SRC_URI="${HOMEPAGE}/archive/v${VERSION}/cppo-v${VERSION}.tar.gz"
+SRC_DIR="cppo-${VERSION}"
+
+OBSOLETES="cppo"
 
 src_compile() {
 	lndirs
@@ -22,5 +25,5 @@ src_compile() {
 src_install() {
 	cd ${B}
 	dodir /usr/bin
-	cygmake install PREFIX=${D}/usr
+	ocaml_install PREFIX=${D}/usr
 }
